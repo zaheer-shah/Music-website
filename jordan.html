@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JORDAN | MUSIC</title>
+</head>
+<style>
+    .musiclist{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        text-align: center;
+        height: 100vh;
+        padding: 10px;
+        color: rgb(81, 99, 77);
+        background-color: rgb(112, 223, 145);
+    }
+    .musiclist h1{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: aliceblue;
+        font-size: 28px;
+    }
+    audio {
+        width: 260px;
+        height: 50px;
+    }
+</style>
+<body>
+    <section>
+        <div class="musiclist">
+             <h1>JORDAN PLAYLIST</h1>
+           
+             <h3>ANKHIYAN DE NEDE</h3>
+            <audio id="audio1" controls src="jordan sandhu/Ankhiyan De Nede  Jordan Sandhu.m4a"></audio>
+           
+            <h3>CHANN CHANN</h3>
+            <audio id="audio2" controls src="jordan sandhu/Chann_Chann_jordan sandhu.mp3"></audio>
+            
+            <h3>NIMM THALLE</h3>
+            <audio id="audio3" controls src="jordan sandhu/Nimm Thalle Jordan Sandhu.mp3"></audio>
+            
+            <h3>TAREEFAN</h3>
+            <audio id="audio4" controls src="jordan sandhu/Tareefan Jordan Sandhu.mp3"></audio>
+            
+
+        </div>
+    </section>
+   
+    <script>
+        let currentlyPlaying = null;
+
+// Add event listeners to each audio element to trigger the playAudio function
+document.getElementById('audio1').addEventListener('play', function() {
+    playAudio('audio1');
+});
+
+document.getElementById('audio2').addEventListener('play', function() {
+    playAudio('audio2');
+});
+
+document.getElementById('audio3').addEventListener('play', function() {
+    playAudio('audio3');
+});
+
+document.getElementById('audio4').addEventListener('play', function() {
+    playAudio('audio4');
+});
+
+
+function playAudio(audioId) {
+    const audioElement = document.getElementById(audioId);
+
+    // Pause the currently playing audio, if any
+    if (currentlyPlaying && currentlyPlaying !== audioElement) {
+        currentlyPlaying.pause();
+    }
+
+    // Set the current audio element to the one being played
+    currentlyPlaying = audioElement;
+
+    // Add an event listener to handle when the audio ends
+    audioElement.addEventListener('ended', () => {
+        currentlyPlaying = null;
+    });
+
+    // Play the audio
+    audioElement.play();
+}
+</Script>
+</body>
+</html>
